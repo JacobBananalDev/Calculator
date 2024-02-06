@@ -1,1 +1,4 @@
-# Simple Calculator
+# Calculator
+- *A Simple calcuator* 
+## Programming Languages Used:
+
