@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="Styles/CalculatorStyle.css"/>
+    <script src="Javascripts/CalculatorScript.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
 <body>
-    <div id="calculator">
-        <h1>Calculator</h1>
-        <p id="last_operation_history"></p>
-        <p id="box" class="box">0</p>
-        <table id="table">
-            <tr>
-                <td><button>%</button></td>
-                <td><button>CE</button></td>
-                <td><button>C</button></td>
-                <td><button id="backspace_btn" ></button></td>
-            </tr>
-            <tr>
-                <td><button>¹∕ₓ</button></td>
-                <td><button>𝑥²</button></td>
-                <td><button>√𝑥</button></td>
-                <td><button id="plusOp" value="+" class="operator" >+</button></td>
-            </tr>
-            <tr>
-                <td><button >7</button></td>
-                <td><button >8</button></td>
-                <td><button >9</button></td>
-                <td><button id="subOp" value="-" class="operator" >-</button></td>
-            </tr>
-            <tr>
-                <td><button >4</button></td>
-                <td><button >5</button></td>
-                <td><button >6</button></td>
-                <td><button id="multiOp" value="*" class="operator" >×</button></td>
-            </tr>
-            <tr>
-                <td><button >1</button></td>
-                <td><button >2</button></td>
-                <td><button >3</button></td>            
-                <td><button id="divOp" value="/" class="operator" >÷</button></td>
-            </tr>
-            <tr>
-                <td><button >±</button></td>
-                <td><button >0</button></td>
-                <td><button id="dot" value="." >.</button></td>
-                <td colspan="4"><button value="=" class="operator" id="equal_sign" >=</button></td>
-            </tr>
-        </table>
-    </div>
-</body>
+    <main class="main">
+      <div class="calculator">
+        <div class="screen">
+          <div class="screen-last" id="lastOperationScreen"></div>
+          <div class="screen-current" id="currentOperationScreen">0</div>
+        </div>
+        <div class="buttons-grid">
+          <button
+            class="btn btn-red span-2"
+            id="clearBtn"
+            onclick="this.blur();"
+          >
+            CLEAR
+          </button>
+          <button
+            class="btn btn-blue span-2"
+            id="deleteBtn"
+            onclick="this.blur();"
+          >
+            DELETE
+          </button>
+          <button class="btn" onclick="this.blur();" data-number>7</button>
+          <button class="btn" onclick="this.blur();" data-number>8</button>
+          <button class="btn" onclick="this.blur();" data-number>9</button>
+          <button class="btn" onclick="this.blur();" data-operator>÷</button>
+
+          <button class="btn" onclick="this.blur();" data-number>4</button>
+          <button class="btn" onclick="this.blur();" data-number>5</button>
+          <button class="btn" onclick="this.blur();" data-number>6</button>
+          <button class="btn" onclick="this.blur();" data-operator>×</button>
+
+          <button class="btn" onclick="this.blur();" data-number>1</button>
+          <button class="btn" onclick="this.blur();" data-number>2</button>
+          <button class="btn" onclick="this.blur();" data-number>3</button>
+          <button class="btn" onclick="this.blur();" data-operator>−</button>
+
+          <button class="btn" onclick="this.blur();" id="pointBtn">.</button>
+          <button class="btn" onclick="this.blur();" data-number>0</button>
+          <button class="btn" onclick="this.blur();" id="equalsBtn">=</button>
+          <button class="btn" onclick="this.blur();" data-operator>+</button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        michalosman
+      </p>
+      <a href="https://github.com/michalosman" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
+    </footer>
+  </body>
 </html>

@@ -1,86 +1,171 @@
-body {
-    font-size: 2.5vh;
-    top: 15%;
-    left: 40%;
-    margin: 0 auto;
-    background-color: lightgreen;
+:root {
+    --background: #f6f6f6;
+    --font: #222;
+    --border: #333;
+    --screen: #eee;
+    --calculator: #aaa;
+    --btn: #eee;
+    --btn-hover: #ddd;
+    --btn-active: #ccc;
+    --btn-red: #faa;
+    --btn-red-hover: #e99;
+    --btn-red-active: #d88;
+    --btn-blue: #aaf;
+    --btn-blue-hover: #99e;
+    --btn-blue-active: #88d;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--font);
     font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-    color: white;
-    text-align: center;
-    margin: 0;
-}
-
-#calculator {
-    width: auto;
-    height: auto;
-    padding: 1.5vh;
-    border: 5px solid #666666;
-    border-radius: 15px;
-    background-color: red;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.box {
-    text-align:right;
-    font-size: 2.8vh;
-    height: 3vh;
-    line-height: 3vh;
-    padding: 1em;
-    border: 2px solid #e68a00;
-    color: white;
-    border-radius: 15px;
-    background-color: black;
-}
-
-#last_operation_history {
-    height: 1.8vh;
-    font-size: 1.8vh;
-    text-align:right;
-    padding-right: 1.5vh;
-    color: rgb(177, 176, 176);
-    background-color: black;
-}
-
-button {
-    width:9vh;
-    height: 9vh;
-    font-weight:bold;
-    font-size: 3vh;
-    color: white;
-    background-color: #666666;
-    border-radius: 50%;
-    border: 1px solid #333333;
-}
-
-#backspace_btn {
-    background-image: url("../assets/back_remove.png");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: 1.7em;
-}
-
-button:hover {
-    background-color: #999999;
+    line-height: 1.6;
+    /* footer support */
+    margin-bottom: 100px;
+  }
+  
+  button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
     cursor: pointer;
-}
-
-.operator {
-    background-color: #e68a00;
-}
-
-.operator:hover {
-    background-color: #ffd11a;
-}
-
-#equal_sign {
-    width: 100%;
+    outline: none;
+  }
+  
+  /* MAIN */
+  
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
+  }
+  
+  .calculator {
+    width: 400px;
+    border: 2px var(--border) solid;
     border-radius: 15px;
-}
+    padding: 20px;
+    background-color: var(--calculator);
+  }
+  
+  .screen {
+    padding: 10px 20px;
+    border: 2px var(--border) solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: var(--screen);
+    text-align: right;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  
+  .screen-last {
+    min-height: 32px;
+    font-size: 20px;
+  }
+  
+  .screen-current {
+    min-height: 64px;
+    font-size: 40px;
+  }
+  
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .span-2 {
+    grid-column: span 2;
+  }
+  
+  .btn {
+    padding: 20px;
+    border: 2px var(--border) solid;
+    border-radius: 5px;
+    background-color: var(--btn);
+    font-size: 20px;
+  }
+  
+  .btn:hover {
+    background-color: var(--btn-hover);
+  }
+  
+  .btn:active {
+    background-color: var(--btn-active);
+  }
+  
+  .btn-red {
+    background-color: var(--btn-red);
+  }
+  
+  .btn-red:hover {
+    background-color: var(--btn-red-hover);
+  }
+  
+  .btn-red:active {
+    background-color: var(--btn-red-active);
+  }
+  
+  .btn-blue {
+    background-color: var(--btn-blue);
+  }
+  
+  .btn-blue:hover {
+    background-color: var(--btn-blue-hover);
+  }
+  
+  .btn-blue:active {
+    background-color: var(--btn-blue-active);
+  }
+  
+  /* Disables input spinners in calc screen */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* FOOTER */
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+  }
+  
+  .fa-github {
+    color: var(--font);
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
